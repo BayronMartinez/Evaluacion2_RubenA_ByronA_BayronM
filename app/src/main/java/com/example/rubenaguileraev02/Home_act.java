@@ -50,6 +50,8 @@ public class Home_act extends AppCompatActivity {
         ArrayList<String> arregloCreditos = new ArrayList<String>();
         arregloClientes.add("Axel");
         arregloClientes.add("Roxana");
+        arregloClientes.add("Betzabe");
+        arregloClientes.add("Matias");
         arregloCreditos.add("Credito Hipotecario");
         arregloCreditos.add("Credito Automotriz");
         Intent i = new Intent(this, Prestamos_act.class);
