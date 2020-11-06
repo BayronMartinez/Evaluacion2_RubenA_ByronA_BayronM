@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import Clases.Credito;
 public class Prestamos_act extends AppCompatActivity {
     private Spinner spClientes;
     private Spinner spCredito;
-    private TextView textoP;
+    private TextView textoP, textoCuotas;
     private int sAxel = 750000;
     private int sRoxana = 900000;
     private int saldoVariante = 0;
@@ -26,6 +27,7 @@ public class Prestamos_act extends AppCompatActivity {
         spClientes = (Spinner)findViewById(R.id.spn_ClientesP);
         spCredito = (Spinner)findViewById(R.id.spn_CreditoP);
         textoP = (TextView) findViewById(R.id.txt_ResultadoP);
+        textoP = (TextView) findViewById(R.id.txt_Cuotas);
         ArrayList<String> listaClientes = (ArrayList<String>) getIntent().getSerializableExtra("Lista Clientes");
         ArrayList<String>listaCreditos = (ArrayList<String>) getIntent().getSerializableExtra("Lista Creditos");
         ArrayAdapter<String> adaptClientesP = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaClientes);
@@ -67,6 +69,7 @@ public class Prestamos_act extends AppCompatActivity {
             }
         }
         saldoVariante= 0;
+        textoCuotas.setText("Su saldo final es ");
     }
     public void ONCCalcularDeudas(View V){
         String creditoSp = spCredito.getSelectedItem().toString();
@@ -86,6 +89,7 @@ public class Prestamos_act extends AppCompatActivity {
             else {
                 calculoC(saldoVariante, credito.getCreditoHipotecario(), 12);
             }
+            textoCuotas.setText("el prestamos sera pagado en 12 cuotas");
         }
         else {
 
@@ -100,6 +104,7 @@ public class Prestamos_act extends AppCompatActivity {
             else{
                 calculoC(saldoVariante, credito.getCreditoAutomotriz(),8);
             }
+            textoCuotas.setText("el prestamos sera pagado en 8 cuotas");
         }
         saldoVariante= 0;
     }
