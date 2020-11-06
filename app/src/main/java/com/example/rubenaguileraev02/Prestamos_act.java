@@ -27,7 +27,7 @@ public class Prestamos_act extends AppCompatActivity {
         spClientes = (Spinner)findViewById(R.id.spn_ClientesP);
         spCredito = (Spinner)findViewById(R.id.spn_CreditoP);
         textoP = (TextView) findViewById(R.id.txt_ResultadoP);
-        textoP = (TextView) findViewById(R.id.txt_Cuotas);
+        textoCuotas = (TextView) findViewById(R.id.txt_Cuotas);
         ArrayList<String> listaClientes = (ArrayList<String>) getIntent().getSerializableExtra("Lista Clientes");
         ArrayList<String>listaCreditos = (ArrayList<String>) getIntent().getSerializableExtra("Lista Creditos");
         ArrayAdapter<String> adaptClientesP = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaClientes);
